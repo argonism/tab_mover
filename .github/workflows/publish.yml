@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: zip output
         run: |
-          zip -r dist/release.zip . -x "*.git*" "*dist*" "*.github*"
+          zip -r release.zip . -x "*.git*" "*dist*" "*.github*"
       - name: Get Changelog Entry
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2
@@ -34,4 +34,4 @@ jobs:
           draft: ${{ steps.changelog_reader.outputs.status == 'unreleased' }}
           allowUpdates: true
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: dist/release.zip
+          artifacts: ./release.zip
