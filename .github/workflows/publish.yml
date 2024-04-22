@@ -7,13 +7,11 @@ on:
 
 jobs:
   release:
-    permissions: read-all
-      contents: write
     runs-on: ubuntu-latest
     environment:
       name: release
     permissions:
-      id-token: write
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: zip output
