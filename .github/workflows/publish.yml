@@ -1,8 +1,5 @@
 name: Publish extension
 
-permissions: read-all
-  contents: write
-
 on:
   push:
     branches:
@@ -10,6 +7,8 @@ on:
 
 jobs:
   release:
+    permissions: read-all
+      contents: write
     runs-on: ubuntu-latest
     environment:
       name: release
