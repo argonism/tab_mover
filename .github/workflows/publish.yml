@@ -1,5 +1,8 @@
 name: Publish extension
 
+permissions: read-all
+  contents: write
+
 on:
   push:
     branches:
