@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [1.0.1] - 2020-06-29
+
+### Update
+
+- Fix move unexpected tabs when multiple windows are opened
+
 ## [1.0.0] - 2020-02-12
 
 ### Added
