@@ -1,11 +1,27 @@
 
+const focused_window_history = [];
+function update_last_focused_window(windowId) {
+  if (windowId < 0) return;
+  focused_window_history.unshift(windowId);
+  if (focused_window_history.length >= 3) {
+    focused_window_history.pop()
+  }
+  console.log("focused_window_history:", focused_window_history)
+}
+chrome.windows.onFocusChanged.addListener(update_last_focused_window)
+
+
 async function start() {
   const current = await chrome.windows.getCurrent();
-  console.log("current:", current,)
+  const last_focused = focused_window_history[1];
+  console.log("current:", current)
+  console.log("last_focused:", last_focused)
 
   const allTabs = await chrome.tabs.query({
-    highlighted: true
+    highlighted: true,
+    windowId: last_focused
   });
+  console.log("allTabs:", allTabs)
   allTabs.forEach((tab) => {
     chrome.tabs.move(tab.id, {
       windowId: current.id,
@@ -14,6 +30,7 @@ async function start() {
   });
 }
 chrome.action.onClicked.addListener(start);
+
 
 
 command_name = "move"
