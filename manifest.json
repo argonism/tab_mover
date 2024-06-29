@@ -1,6 +1,6 @@
 {
   "name": "tab mover",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "move highlighted tabs to window which pushed buttan is at",
   "icons": {
     "128": "tab_mover.128.png"
